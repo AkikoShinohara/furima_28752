@@ -40,7 +40,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-
+- has_many :payment
 
 ## items テーブル
 
@@ -100,6 +100,7 @@ Things you may want to cover:
 
 ### Association
 - has_one:ship_address
+- belongs_to:user
 
 
 
