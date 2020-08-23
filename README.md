@@ -71,7 +71,7 @@ Things you may want to cover:
 
 
 
-## ship_address テーブル
+## ship_addresses テーブル
 
 | Column         | Type      | Options                        |
 | -------------- | --------- | ------------------------------ |
@@ -79,9 +79,9 @@ Things you may want to cover:
 | prefectures_id | integer   | null: false                    |
 | cities         | string    | null: false                    |
 | address        | string    | null: false                    |
-| building       | string    | null: false                    |
+| building       | string    |                                |
 | phone_number   | string    | null: false                    |
-| user_id        | reference | null: false, foreign_key: true |
+| user           | reference | null: false, foreign_key: true |
 
 ### Association
 
@@ -91,16 +91,15 @@ Things you may want to cover:
 - class Prefecture
 
 
-## payment テーブル
+## payments テーブル
 
 | Column   | Type     | Option                        |
 | -------- | -------- |------------------------------ |
-| price    | integer  | null: false                   |
-| item_id  | integer  | null:false. foreign_key: true |
+| user_id  | integer  | null:false, foreign_key: true |
+| item_id  | integer  | null:false, foreign_key: true |
 
 ### Association
 - has_one:ship_address
-- belongs_to:item
 
 
 
