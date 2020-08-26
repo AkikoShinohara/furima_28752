@@ -31,10 +31,10 @@ Things you may want to cover:
 | nickname           | string   | null: false       |
 | email              | string   | null: false       |
 | encrypted_password | string   | null: false       |
-| last_name          | string   | null: false       |
-| first_name         | string   | null: false       |
-| last_name(kana)    | string   | null: false       |
-| first_name(kana)   | string   | null: false       |
+| l_name             | string   | null: false       |
+| f_name             | string   | null: false       |
+| l_name_kana        | string   | null: false       |
+| f_name_kana        | string   | null: false       |
 | birthday           | date     | null: false       |
 
 ### Association
