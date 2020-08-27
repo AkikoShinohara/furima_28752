@@ -6,19 +6,14 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :password, presence: true, length: {minimum: 6},
-            #英数字のみ可
-            format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "英数字以外の文字を含むことはできません"}
+            format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i, message: " Include both letters and numbers"}
   validates :email, presence: true,
-            # 重複不可
             uniqueness: { case_sensitive: false },
-            # 英数字のみ可,@を挟んだemailの形になっているか
-            format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "英数字以外の文字を含むことはできません" }  
-  with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: "全角文字を使用してください" } do
-    validates :f_name
-    validates :l_name
-    validates :f_name_kana
-    validates :l_name_kana
-  end
+            format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}  
+  validates :f_name, :l_name, presence: true, 
+            format: {with: /\A[一-龥ぁ-ん]/, message: "Full-width characters"}
+  validates :f_name_kana, :l_name_kana, presence: true, 
+            format: {with: /\A[ァ-ヶー－]+\z/, message: "Full-width katakana characters"}
   validates :birthday, presence: true
 
   has_many :items
