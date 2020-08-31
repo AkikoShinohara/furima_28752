@@ -51,8 +51,8 @@ Things you may want to cover:
 | category_id      | integer    | null: false                     |
 | condition_id     | integer    | null: false                     |  
 | shipping_cost_id | integer    | null: false                     |
-| prefectures_id   | integer    | null: false                     |  
-| send_days_id     | integer    | null: false                     |
+| prefecture_id   | integer    | null: false                     |  
+| send_day_id     | integer    | null: false                     |
 | price            | integer    | null: false                     | 
 | user             | references | null: false , foreign_key: true |
 
@@ -61,6 +61,11 @@ Things you may want to cover:
 - has_one  :payment
 - has_one_attached :image
 - belongs_to: user
+- belongs_to_active_hash :category
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :shopping_cost
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :send_day
 
 ## ActiveHashを用いるモデル
 - class Category
