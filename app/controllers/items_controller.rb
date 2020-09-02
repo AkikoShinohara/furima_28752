@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
-  def new  
+  def new
     @item = Item.new
   end
 
@@ -20,10 +20,7 @@ class ItemsController < ApplicationController
   private
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    else
-    end
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   # def  done
