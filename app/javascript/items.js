@@ -16,6 +16,7 @@ const profit = document.getElementById("profit");
         add_tax.textContent = fee;
         profit.textContent = gains;
     }
+    
   });
 }
 window.addEventListener('load', price);
