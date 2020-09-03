@@ -27,10 +27,6 @@ class ItemsController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
   end
 
-  # def  done
-  #   @item_purchaser= Item.find(params[:id])
-  #   @item_purchaser.update( item_id: current_user.id)
-  #  end
   def set_item
     @item = Item.find(params[:id])
   end
