@@ -98,10 +98,10 @@ Things you may want to cover:
 
 ## payments テーブル
 
-| Column   | Type     | Option                        |
-| -------- | -------- |------------------------------ |
-| user_id  | integer  | null:false, foreign_key: true |
-| item_id  | integer  | null:false, foreign_key: true |
+| Column   | Type      | Option                        |
+| -------- | --------- |------------------------------ |
+| user     | reference | null:false, foreign_key: true |
+| item     | reference | null:false, foreign_key: true |
 
 ### Association
 - has_one:ship_address
