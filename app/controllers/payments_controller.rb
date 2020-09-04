@@ -1,13 +1,10 @@
 class PaymentsController < ApplicationController
 
   def index
-  end
-
-  def new 
-  end
-
-  def create
+    @item = Item.find(params[:item_id])
   end
   
+
+
 end
 
