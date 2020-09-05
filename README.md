@@ -78,15 +78,16 @@ Things you may want to cover:
 
 ## addresses テーブル
 
-| Column         | Type      | Options                        |
-| -------------- | --------- | ------------------------------ |
-| postal_code    | string    | null: false                    |
-| prefectures_id | integer   | null: false                    |
-| cities         | string    | null: false                    |
-| address        | string    | null: false                    |
-| building       | string    |                                |
-| phone_number   | string    | null: false                    |
-| user           | reference | null: false, foreign_key: true |
+| Column          | Type      | Options                        |
+| --------------- | --------- | ------------------------------ |
+| postal_code     | string    | null: false                    |
+| prefecture      | integer   | null: false                    |
+| city            | string    | null: false                    |
+| address         | string    | null: false                    |
+| house_number    | string    | null: false                    |
+| building_number | string    |                                |
+| phone_number    | string    | null: false                    |
+| payment         | reference | null: false, foreign_key: true |
 
 ### Association
 
