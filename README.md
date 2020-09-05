@@ -76,7 +76,7 @@ Things you may want to cover:
 
 
 
-## ship_addresses テーブル
+## addresses テーブル
 
 | Column         | Type      | Options                        |
 | -------------- | --------- | ------------------------------ |
@@ -104,7 +104,7 @@ Things you may want to cover:
 | item     | reference | null:false, foreign_key: true |
 
 ### Association
-- has_one:ship_address
+- has_one:address
 - belongs_to:user
 - belongs_to:item
 
