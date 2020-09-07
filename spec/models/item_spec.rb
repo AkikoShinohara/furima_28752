@@ -11,23 +11,23 @@ RSpec.describe Item, type: :model do
       it 'image,name, messages, category_id, condition_id, shopping_cost_id, prefecture_id, send_day_id, priceがあれば商品が保存される' do
         expect(@item).to be_valid
       end
-      it 'category_idが1を選んでなければ保存される' do
+      it 'category_idが0を選んでなければ保存される' do
         @item.category_id = '2'
         expect(@item).to be_valid
       end
-      it 'condition_idが1を選んでなければ保存される' do
+      it 'condition_idが0を選んでなければ保存される' do
         @item.condition_id = '2'
         expect(@item).to be_valid
       end
-      it 'shopping_cost_idが1を選んでなければ保存される' do
+      it 'shopping_cost_idが0を選んでなければ保存される' do
         @item.shopping_cost_id = '2'
         expect(@item).to be_valid
       end
-      it 'prefecture_idが1を選んでなければ保存される' do
+      it 'prefecture_idが0を選んでなければ保存される' do
         @item.prefecture_id = '2'
         expect(@item).to be_valid
       end
-      it 'send_day_idが1を選んでなければ保存される' do
+      it 'send_day_idが0を選んでなければ保存される' do
         @item.send_day_id = '2'
         expect(@item).to be_valid
       end
@@ -61,28 +61,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
       end
-      it 'category_idが1だと保存できない' do
-        @item.category_id = '1'
+      it 'category_idが0だと保存できない' do
+        @item.category_id = '0'
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
-      it 'condition_idが1だと保存できない' do
-        @item.condition_id = '1'
+      it 'condition_idが0だと保存できない' do
+        @item.condition_id = '0'
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition must be other than 1')
       end
-      it 'shopping_cost_idが1だと保存できない' do
-        @item.shopping_cost_id = '1'
+      it 'shopping_cost_idが0だと保存できない' do
+        @item.shopping_cost_id = '0'
         @item.valid?
         expect(@item.errors.full_messages).to include('Shopping cost must be other than 1')
       end
-      it 'prefecture_idが1だと保存できない' do
-        @item.prefecture_id = '1'
+      it 'prefecture_idが0だと保存できない' do
+        @item.prefecture_id = '0'
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
-      it 'send_day_idが1だと保存できない' do
-        @item.send_day_id = '1'
+      it 'send_day_idが0だと保存できない' do
+        @item.send_day_id = '0'
         @item.valid?
         expect(@item.errors.full_messages).to include('Send day must be other than 1')
       end
