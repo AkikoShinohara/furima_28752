@@ -11,7 +11,7 @@ RSpec.describe PaymentAddress, type: :model do
         expect(@payment_address).to be_valid
       end
       it 'postal_codeが半角のハイフンを含んだ正しい形式であると保存できること' do
-        @payment_address.postal_code = "123-4567"
+        @payment_address.postal_code = '123-4567'
         expect(@payment_address).to be_valid
       end
       it 'building_nameは空でも保存できること' do
@@ -19,7 +19,7 @@ RSpec.describe PaymentAddress, type: :model do
         expect(@payment_address).to be_valid
       end
       it 'prefecture0を選んでなければ保存できないこと' do
-        @payment_address.prefecture = "1"
+        @payment_address.prefecture = '1'
         expect(@payment_address).to be_valid
       end
     end
@@ -28,42 +28,42 @@ RSpec.describe PaymentAddress, type: :model do
   describe '出品商品の購入' do
     context '購入がうまくいかないとき' do
       it 'postal_codeが空では保存できないこと' do
-        @payment_address.postal_code = ""
+        @payment_address.postal_code = ''
         @payment_address.valid?
         expect(@payment_address.errors.full_messages).to include("Postal code can't be blank")
       end
       it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
-        @payment_address.postal_code = ""
+        @payment_address.postal_code = ''
         @payment_address.valid?
-        expect(@payment_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@payment_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'prefectureを0を選択すると保存できないこと' do
-        @payment_address.prefecture = "0"
+        @payment_address.prefecture = '0'
         @payment_address.valid?
         expect(@payment_address.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'cityが空だと保存できないこと' do
-        @payment_address.city = ""
+        @payment_address.city = ''
         @payment_address.valid?
         expect(@payment_address.errors.full_messages).to include("City can't be blank")
       end
       it 'house_numberが空だと保存できないこと' do
-        @payment_address.house_number = ""
+        @payment_address.house_number = ''
         @payment_address.valid?
         expect(@payment_address.errors.full_messages).to include("House number can't be blank")
       end
       it 'phone_numberが空だと保存できないこと' do
-        @payment_address.phone_number = ""
+        @payment_address.phone_number = ''
         @payment_address.valid?
         expect(@payment_address.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberが11桁以上だと保存できないこと' do
-        @payment_address.phone_number = "080111122223"
+        @payment_address.phone_number = '080111122223'
         @payment_address.valid?
-        expect(@payment_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@payment_address.errors.full_messages).to include('Phone number is invalid')
       end
       it 'tokenが空だと保存できないこと' do
-        @payment_address.token = ""
+        @payment_address.token = ''
         @payment_address.valid?
         expect(@payment_address.errors.full_messages).to include("Token can't be blank")
       end
