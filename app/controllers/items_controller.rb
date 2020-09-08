@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update]
   def index
-    @items = Item.includes(:user).order("created_at ASC")
+    @items = Item.includes(:user).order('created_at ASC')
   end
 
   def new
@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 
   def edit
   end
-  
+
   def update
     if @item.user_id == current_user.id
       if @item.update(item_params)
@@ -38,9 +38,7 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    if item.destroy
-      redirect_to root_path
-    end
+    redirect_to root_path if item.destroy
   end
 
   private
