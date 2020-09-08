@@ -32,8 +32,8 @@ RSpec.describe PaymentAddress, type: :model do
         @payment_address.valid?
         expect(@payment_address.errors.full_messages).to include("Postal code can't be blank")
       end
-      it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
-        @payment_address.postal_code = ''
+      it 'postal_codeが半角のハイフンを含んでないと保存できないこと' do
+        @payment_address.postal_code = '1234567'
         @payment_address.valid?
         expect(@payment_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
