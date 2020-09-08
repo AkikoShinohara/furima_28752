@@ -31,7 +31,6 @@ class PaymentsController < ApplicationController
       card: payment_params[:token],
       currency: 'jpy'
     )
-    # redirect_to action: :done
   end
 
   def set_item
