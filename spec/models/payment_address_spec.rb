@@ -30,42 +30,42 @@ RSpec.describe PaymentAddress, type: :model do
       it 'postal_codeが空では保存できないこと' do
         @payment_address.postal_code = ''
         @payment_address.valid?
-        expect(@payment_address.errors.full_messages).to include("Postal code can't be blank")
+        expect(@payment_address.errors.full_messages).to include("郵便番号を入力してください")
       end
       it 'postal_codeが半角のハイフンを含んでないと保存できないこと' do
         @payment_address.postal_code = '1234567'
         @payment_address.valid?
-        expect(@payment_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
+        expect(@payment_address.errors.full_messages).to include('郵便番号はハイフン（-）を含めてください')
       end
       it 'prefectureを0を選択すると保存できないこと' do
         @payment_address.prefecture = '0'
         @payment_address.valid?
-        expect(@payment_address.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@payment_address.errors.full_messages).to include("都道府県を選択してください")
       end
       it 'cityが空だと保存できないこと' do
         @payment_address.city = ''
         @payment_address.valid?
-        expect(@payment_address.errors.full_messages).to include("City can't be blank")
+        expect(@payment_address.errors.full_messages).to include("市町村を入力してください")
       end
       it 'house_numberが空だと保存できないこと' do
         @payment_address.house_number = ''
         @payment_address.valid?
-        expect(@payment_address.errors.full_messages).to include("House number can't be blank")
+        expect(@payment_address.errors.full_messages).to include("番地を入力してください")
       end
       it 'phone_numberが空だと保存できないこと' do
         @payment_address.phone_number = ''
         @payment_address.valid?
-        expect(@payment_address.errors.full_messages).to include("Phone number can't be blank")
+        expect(@payment_address.errors.full_messages).to include("電話番号を入力してください")
       end
       it 'phone_numberが11桁以上だと保存できないこと' do
         @payment_address.phone_number = '080111122223'
         @payment_address.valid?
-        expect(@payment_address.errors.full_messages).to include('Phone number is invalid')
+        expect(@payment_address.errors.full_messages).to include('電話番号は半角数字で入力してください')
       end
       it 'tokenが空だと保存できないこと' do
         @payment_address.token = ''
         @payment_address.valid?
-        expect(@payment_address.errors.full_messages).to include("Token can't be blank")
+        expect(@payment_address.errors.full_messages).to include("カード情報を入力してください")
       end
     end
   end
