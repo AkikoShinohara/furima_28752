@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :items do
     resources :payments, only: [:index, :new, :create]
   end
+    resources :users, only: [:show]
 end
